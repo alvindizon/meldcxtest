@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.alvindizon.meldcxtest.features.history.HistoryUIItem" />
+        <variable
+            name="viewModel"
+            type="com.alvindizon.meldcxtest.features.history.HistoryViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/img_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/img_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/text_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.70" />
+
+        <TextView
+            android:id="@+id/url"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{model.url}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@id/text_guideline"
+            app:layout_constraintStart_toEndOf="@id/img_guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="http://www.google.com" />
+
+        <TextView
+            android:id="@+id/datetime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{model.dateTime}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@id/text_guideline"
+            app:layout_constraintStart_toEndOf="@id/img_guideline"
+            app:layout_constraintTop_toBottomOf="@id/url"
+            tools:text="2020-07-23" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.deleteItem(model)}"
+            android:text="@string/delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_guideline"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

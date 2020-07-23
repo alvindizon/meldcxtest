@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">meldcxtest</string>
+    <string name="search_img_url">Search image using URL</string>
+    <string name="delete">Delete</string>
+    <string name="ss_captured_saving">Screenshot captured. Saving to DB…</string>
+    <string name="db_success">Record saved to DB.</string>
+</resources>
