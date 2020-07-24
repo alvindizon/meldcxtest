@@ -10,6 +10,7 @@ import android.os.Environment
 import android.view.View
 import android.webkit.WebChromeClient
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -118,5 +119,7 @@ class BrowserActivity : AppCompatActivity() {
                 }
             }
         }
+        // setting a new WebViewClient prevents opening URLs on a phone's default browser
+        binding.webview.webViewClient = WebViewClient()
     }
 }
