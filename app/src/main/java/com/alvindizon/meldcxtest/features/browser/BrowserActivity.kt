@@ -68,7 +68,6 @@ class BrowserActivity : AppCompatActivity() {
 
                 Glide.with(binding.historyImage)
                     .load(File(this.getDir(Environment.DIRECTORY_PICTURES, Context.MODE_PRIVATE), filename))
-                    .centerCrop()
                     .into(binding.historyImage)
 
                 val url = data.getStringExtra(Const.URL_KEY)
