@@ -21,8 +21,8 @@ abstract class HistoryDao {
     @Query("SELECT * FROM historyDb WHERE url LIKE :url")
     abstract fun getRecordByUrl(url: String): Single<List<HistoryItem>>
 
-    @Query("DELETE FROM historyDb WHERE fileName LIKE :uri")
-    abstract fun deleteRecordByUri(uri: String): Completable
+    @Query("DELETE FROM historyDb WHERE fileName LIKE :fileName")
+    abstract fun deleteRecordByFileName(fileName: String): Completable
 
     @Query("SELECT * FROM historyDb")
     abstract fun getAllItems(): Single<List<HistoryItem>>

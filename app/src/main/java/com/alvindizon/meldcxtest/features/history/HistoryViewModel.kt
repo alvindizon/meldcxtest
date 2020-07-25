@@ -66,7 +66,7 @@ class HistoryViewModel(private val historyDao: HistoryDao) : BaseViewModel() {
 
     // this function is called from the ViewModel, this was done so that I have access to the BinDao
     fun deleteItem(historyUIItem: HistoryUIItem) {
-        compositeDisposable.add(historyDao.deleteRecordByUri(historyUIItem.fileName)
+        compositeDisposable.add(historyDao.deleteRecordByFileName(historyUIItem.fileName)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
