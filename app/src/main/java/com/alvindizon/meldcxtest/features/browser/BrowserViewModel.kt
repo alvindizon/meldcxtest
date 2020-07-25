@@ -51,7 +51,7 @@ class BrowserViewModel(
     // This function uses the ContextWrapper to access the internal app storage and saves the screenshot
     // to that location.
     // On success, this function emits a new HistoryItem that will be saved to the DB
-    private fun saveBitmapToInternalStorage(url: String, bitmap: Bitmap) : Single<HistoryItem> {
+    fun saveBitmapToInternalStorage(url: String, bitmap: Bitmap) : Single<HistoryItem> {
         return Single.create {
             var file = contextWrapper.getDir(Environment.DIRECTORY_PICTURES, Context.MODE_PRIVATE)
             val millis = System.currentTimeMillis()
